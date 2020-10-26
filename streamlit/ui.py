@@ -5,7 +5,8 @@ from PIL import Image
 import io
 
 # interact with FastAPI endpoint
-backend = 'http://fastapi:8000/segmentation'
+# backend = 'http://fastapi:8000/segmentation'
+backend = 'http://falocalhoststapi:8000/segmentation'
 
 
 def process(image, server_url: str):
