@@ -1,21 +1,29 @@
-from fastapi import FastAPI, File
+from typing import Optional
+from fastapi import FastAPI, File, Query
 from starlette.responses import Response
 import io
-from segmentation import get_segmentator, get_segments
+from model import get_model, get_result
+import logging
 
-model = get_segmentator()
 
-app = FastAPI(title="DeepLabV3 image segmentation",
-              description='''Obtain semantic segmentation maps of the image in input via DeepLabV3 implemented in PyTorch.
-                           Visit this URL at port 8501 for the streamlit interface.''',
+logging.basicConfig(level=logging.DEBUG)
+
+model = get_model()
+
+app = FastAPI(title="Question Answering",
+              description=''' El objetivo es encontrar el espacio 
+              de texto en el párrafo que responde a la pregunta 
+              planteada.''',
               version="0.1.0",
               )
 
+@app.post("/qas/")
+async def get_segmentation_map(context: str = Query(..., min_length=3), question: str = Query(..., min_length=3)):
+    '''Get quention answering'''
+    logging.debug("ejecutar modelo...")
+    if context and question:
+        result = get_result(model, context, question)
+        logging.debug("modelo ejecutado...")
+        return Response(result)
+    return {"items": "Null"}
 
-@app.post("/segmentation")
-def get_segmentation_map(file: bytes = File(...)):
-    '''Get segmentation maps from image file'''
-    segmented_image = get_segments(model, file)
-    bytes_io = io.BytesIO()
-    segmented_image.save(bytes_io, format='PNG')
-    return Response(bytes_io.getvalue(), media_type="image/png")

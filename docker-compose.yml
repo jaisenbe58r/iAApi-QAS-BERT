@@ -8,6 +8,8 @@ services:
     networks:
       - deploy_network
     container_name: fastapi
+    volumes:
+      - "./fastapi:/app"
 
   streamlit:
     build: streamlit/
@@ -18,6 +20,8 @@ services:
     networks:
       - deploy_network
     container_name: streamlit
+    volumes:
+      - "./streamlit:/app"
 
 networks:
   deploy_network:

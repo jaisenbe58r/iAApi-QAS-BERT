@@ -3,48 +3,52 @@ from requests_toolbelt.multipart.encoder import MultipartEncoder
 import requests
 from PIL import Image
 import io
+import logging
+
 
 # interact with FastAPI endpoint
-# backend = 'http://fastapi:8000/segmentation'
-backend = 'http://falocalhoststapi:8000/segmentation'
+backend = 'http://fastapi:8000/qas/'
+# backend = 'http://localhost:8000/qas/'
 
 
-def process(image, server_url: str):
+def process(context: str, question: str, server_url: str):
 
     m = MultipartEncoder(
-        fields={'file': ('filename', image, 'image/jpeg')}
+        fields={'context': context, 'question': question}
         )
-
     r = requests.post(server_url,
                       data=m,
+                      params=m.fields,
                       headers={'Content-Type': m.content_type},
                       timeout=8000)
+    print(r.url)
 
     return r
 
 
 # construct UI layout
-st.title('DeepLabV3 image segmentation')
+st.title('Question Answering')
 
-st.write('''Obtain semantic segmentation maps of the image in input via DeepLabV3 implemented in PyTorch.
-         This streamlit example uses a FastAPI service as backend.
+st.write('''Question Answering.
          Visit this URL at `:8000/docs` for FastAPI documentation.''')  # description and instructions
 
-input_image = st.file_uploader('insert image')  # image upload widget
+user_input_context = st.text_area("Context:")
+user_input_question = st.text_area("Question:")
 
-if st.button('Get segmentation map'):
+if st.button('Get Answering'):
 
-    col1, col2 = st.beta_columns(2)
+    if user_input_context and user_input_question:
+        result = process(user_input_context, user_input_question, backend)
+        st.write(result.content)
 
-    if input_image:
-        segments = process(input_image, backend)
-        original_image = Image.open(input_image).convert('RGB')
-        segmented_image = Image.open(io.BytesIO(segments.content)).convert('RGB')
-        col1.header("Original")
-        col1.image(original_image, use_column_width=True)
-        col2.header("Segmented")
-        col2.image(segmented_image, use_column_width=True)
+    elif user_input_context:
+        # handle case with no image
+        st.write("Insert question!")
+
+    elif user_input_context:
+        # handle case with no image
+        st.write("Insert context!")
 
     else:
         # handle case with no image
-        st.write("Insert an image!")
+        st.write("Insert context and question!")
