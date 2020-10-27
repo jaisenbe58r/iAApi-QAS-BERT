@@ -4,7 +4,7 @@ from starlette.responses import Response
 import io
 from model import get_model, get_result
 import logging
-import uvicorn
+# import uvicorn
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -35,5 +35,5 @@ async def get_segmentation_map(context: str = Query(..., min_length=3), question
     return {"items": "Null"}
 
 
-if __name__ == "__main__":
-    uvicorn.run("server:app", host="0.0.0.0", port=8008)
+# if __name__ == "__main__":
+#     uvicorn.run("server:app", host="0.0.0.0", port=8008)
