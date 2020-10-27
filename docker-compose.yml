@@ -27,6 +27,7 @@ services:
         - 8501:8501
     networks:
       - frontend
+      - backend
     container_name: streamlit-docker
     # volumes:
     #   - "./streamlit:/app"
