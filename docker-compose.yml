@@ -2,14 +2,22 @@ version: '3'
 
 services:
   fastapi:
-    build: fastapi/
+    build: 
+      context: fastapi
+      dockerfile: Dockerfile
+    restart: unless-stopped
     ports: 
-      - 8000:8000
+      - 8008:8008
+    environment:
+      APP_ENV: "prod"
+      APP_DEBUG: "False"
+      APP_PORT: 8000
     networks:
-      - deploy_network
-    container_name: fastapi
+      - frontend
+      - backend
+    container_name: fastapi-docker
     volumes:
-      - "./fastapi:/app/"
+      - "fastapi:/app/"
 
   streamlit:
     build: streamlit/
@@ -18,21 +26,36 @@ services:
     ports: 
         - 8501:8501
     networks:
-      - deploy_network
-    container_name: streamlit
+      - frontend
+    container_name: streamlit-docker
     volumes:
       - "./streamlit:/app"
 
-  nginx:
-    image: nginx:latest
+  webserver:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    image: digitalocean.com/webserver:latest
+    container_name: webserver
+    restart: unless-stopped
+    environment:
+      APP_ENV: "prod"
+      APP_NAME: "webserver"
+      APP_DEBUG: "true"
+      SERVICE_NAME: "webserver"
     ports:
-      - "8080:8080"
+      - "80:80"
+      - "443:443"
     volumes:
-      - ./nginx_conf.conf:/etc/nginx/conf.d/default.conf
+      - nginxdata:/var/log/nginx
     depends_on:
       - fastapi
       - streamlit
+    networks:
+      - frontend
 
 networks:
-  deploy_network:
+  frontend:
+    driver: bridge
+  backend:
     driver: bridge
