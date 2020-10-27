@@ -32,6 +32,29 @@ services:
     # volumes:
     #   - "./streamlit:/app"
 
+  webserver:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    image: digitalocean.com/webserver:latest
+    container_name: webserver
+    restart: unless-stopped
+    environment:
+      APP_ENV: "prod"
+      APP_NAME: "webserver"
+      APP_DEBUG: "true"
+      SERVICE_NAME: "webserver"
+    ports:
+      - "80:80"
+      - "443:443"
+    # volumes:
+    #   - ./nginx:/var/log/nginx
+    depends_on:
+      - fastapi
+      - streamlit
+    networks:
+      - frontend
+
 networks:
   frontend:
     driver: bridge
