@@ -46,8 +46,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - ./nginx:/var/log/nginx
+    # volumes:
+    #   - ./nginx:/var/log/nginx
     depends_on:
       - fastapi
       - streamlit
