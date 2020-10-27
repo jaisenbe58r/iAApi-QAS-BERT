@@ -17,7 +17,7 @@ services:
       - backend
     container_name: fastapi-docker
     volumes:
-      - "fastapi:/app/"
+      - "./fastapi:/app/"
 
   streamlit:
     build: streamlit/
