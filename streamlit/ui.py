@@ -7,7 +7,7 @@ import logging
 
 
 # interact with FastAPI endpoint
-backend = 'http://fastapi:8000/qas/'
+backend = 'http://fastapi:8008/qas/'
 # backend = 'http://localhost:8000/qas/'
 
 
@@ -30,7 +30,7 @@ def process(context: str, question: str, server_url: str):
 st.title('Question Answering')
 
 st.write('''Question Answering.
-         Visit this URL at `:8000/docs` for FastAPI documentation.''')  # description and instructions
+         Visit this URL at `:8008/docs` for FastAPI documentation.''')  # description and instructions
 
 user_input_context = st.text_area("Context:")
 user_input_question = st.text_area("Question:")
