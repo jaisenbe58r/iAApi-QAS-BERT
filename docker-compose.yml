@@ -5,7 +5,7 @@ services:
     build: 
       context: fastapi
       dockerfile: Dockerfile
-    restart: unless-stopped
+    # restart: unless-stopped
     ports: 
       - 8008:8008
     environment:
@@ -13,8 +13,7 @@ services:
       APP_DEBUG: "False"
       APP_PORT: 8008
     networks:
-      - frontend
-      - backend
+      - proyect
     container_name: fastapi-docker
     # volumes:
     #   - "./fastapi:/app/"
@@ -26,14 +25,11 @@ services:
     ports: 
         - 8501:8501
     networks:
-      - frontend
-      - backend
+      - proyect
     container_name: streamlit-docker
     # volumes:
     #   - "./streamlit:/app"
 
 networks:
-  frontend:
-    driver: bridge
-  backend:
+  proyect:
     driver: bridge
