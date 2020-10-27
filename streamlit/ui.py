@@ -7,7 +7,7 @@ import logging
 
 
 # interact with FastAPI endpoint
-backend = 'http://fastapi:8008/qas/'
+backend = 'http://localhost:8008/qas/'
 # backend = 'http://localhost:8000/qas/'
 
 
