@@ -12,4 +12,5 @@ COPY . /fastapi
 
 EXPOSE 8008
 
-CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8008"]
+CMD ["python", "server.py"]
+# CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8008"]

@@ -4,7 +4,7 @@ from starlette.responses import Response
 import io
 from model import get_model, get_result
 import logging
-
+import uvicorn
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -17,6 +17,13 @@ app = FastAPI(title="Question Answering",
               version="0.1.0",
               )
 
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome from the API"}
+
+
 @app.post("/qas/")
 async def get_segmentation_map(context: str = Query(..., min_length=3), question: str = Query(..., min_length=3)):
     '''Get quention answering'''
@@ -27,3 +34,6 @@ async def get_segmentation_map(context: str = Query(..., min_length=3), question
         return Response(result)
     return {"items": "Null"}
 
+
+if __name__ == "__main__":
+    uvicorn.run("server:app", host="0.0.0.0", port=8008)
