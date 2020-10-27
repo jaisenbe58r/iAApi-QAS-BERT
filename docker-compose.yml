@@ -47,7 +47,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - nginxdata:/var/log/nginx
+      - ./nginx:/var/log/nginx
     depends_on:
       - fastapi
       - streamlit
