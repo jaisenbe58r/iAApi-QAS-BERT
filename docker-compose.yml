@@ -16,8 +16,8 @@ services:
       - frontend
       - backend
     container_name: fastapi-docker
-    volumes:
-      - "./fastapi:/app/"
+    # volumes:
+    #   - "./fastapi:/app/"
 
   streamlit:
     build: streamlit/
@@ -28,8 +28,8 @@ services:
     networks:
       - frontend
     container_name: streamlit-docker
-    volumes:
-      - "./streamlit:/app"
+    # volumes:
+    #   - "./streamlit:/app"
 
   webserver:
     build:
