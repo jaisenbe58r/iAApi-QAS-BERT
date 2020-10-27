@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_st
 
 EXPOSE 8008
 
-CMD ["uvicorn", "server:app", "--host", "fastapi", "--port", "8008"]
+CMD ["uvicorn", "server:app", "--host", "188.166.56.183", "--port", "8008"]
