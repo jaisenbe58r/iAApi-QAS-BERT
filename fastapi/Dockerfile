@@ -4,11 +4,12 @@ RUN mkdir /fastapi
 
 COPY requirements.txt /fastapi
 
-RUN pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
-
 COPY . /fastapi
 
 WORKDIR /fastapi
+
+RUN pip install -r requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
+
 
 EXPOSE 8008
 
