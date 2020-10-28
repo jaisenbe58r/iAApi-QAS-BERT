@@ -25,8 +25,8 @@ def read_root():
 
 
 @app.post("/qas/")
-async def get_segmentation_map(context: str = Query(..., min_length=3), question: str = Query(..., min_length=3)):
-    '''Get quention answering'''
+async def get_qas(context: str = Query(..., min_length=3), question: str = Query(..., min_length=3)):
+    '''Get question answering'''
     logging.debug("ejecutar modelo...")
     if context and question:
         result = get_result(model, context, question)
