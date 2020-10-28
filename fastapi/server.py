@@ -4,11 +4,15 @@ from starlette.responses import Response
 import io
 from model import get_model, get_result
 import logging
+from nlp import NLP
 # import uvicorn
 
 logging.basicConfig(level=logging.DEBUG)
 
-model = get_model()
+from nlp import NLP
+
+nlp = NLP()
+# model = get_model()
 
 app = FastAPI(title="Question Answering",
               description=''' El objetivo es encontrar el espacio 
@@ -16,7 +20,7 @@ app = FastAPI(title="Question Answering",
               planteada.''',
               version="0.1.0",
               )
-
+nlp = NLP()
 
 @app.get("/")
 def read_root():
