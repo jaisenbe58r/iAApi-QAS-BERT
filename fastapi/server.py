@@ -27,6 +27,9 @@ def read_root():
 async def get_qas(context: str = Query(..., min_length=3), question: str = Query(..., min_length=3)):
     '''Get question answering'''
     logging.debug("ejecutar modelo...")
+    print("**********************")
+    print(context)
+    print("**********************")
     if context and question:
         result = get_result(model, context, question)
         logging.debug("modelo ejecutado...")
