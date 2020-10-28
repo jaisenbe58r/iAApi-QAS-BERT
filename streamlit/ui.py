@@ -39,7 +39,7 @@ if st.button('Get Answering'):
 
     if user_input_context and user_input_question:
         result = process(user_input_context, user_input_question, backend)
-        result_json = json.loads(result.content)
+        result_json = json.loads(result.text)
         st.write(f'Respuesta:    {result_json["answer"]}')
         st.write(f'Score:        {result_json["score"]}')
 
