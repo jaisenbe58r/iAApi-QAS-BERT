@@ -4,7 +4,7 @@ from starlette.responses import Response
 import io
 from model import get_model, get_result
 import logging
-from nlp import NLP
+# from nlp import NLP
 # import uvicorn
 
 logging.basicConfig(level=logging.DEBUG)
@@ -15,8 +15,8 @@ app = FastAPI(title="Question Answering",
               planteada.''',
               version="0.1.0",
               )
-nlp = NLP()
-# model = get_model()
+# nlp = NLP()
+model = get_model()
 
 @app.get("/")
 def read_root():
