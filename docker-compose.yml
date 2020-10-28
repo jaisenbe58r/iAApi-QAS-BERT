@@ -13,14 +13,13 @@ services:
       APP_DEBUG: "False"
       # APP_PORT: 8008
     deploy:
-      replicas: 2
       resources:
         limits:
           cpus: '2'
-          memory: 5000M
+          memory: 4096M
         reservations:
           cpus: '1.0'
-          memory: 4000M
+          memory: 2048M
     networks:
       - proyect
     container_name: fastapi-docker
