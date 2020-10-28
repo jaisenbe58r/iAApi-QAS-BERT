@@ -10,7 +10,6 @@ def get_model():
               tokenizer="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es")
     # def qa(context: str, question: str):
     #     return context+question
-
     return qa
 
 
