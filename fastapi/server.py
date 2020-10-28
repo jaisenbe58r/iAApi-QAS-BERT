@@ -9,11 +9,6 @@ from nlp import NLP
 
 logging.basicConfig(level=logging.DEBUG)
 
-from nlp import NLP
-
-nlp = NLP()
-# model = get_model()
-
 app = FastAPI(title="Question Answering",
               description=''' El objetivo es encontrar el espacio 
               de texto en el párrafo que responde a la pregunta 
@@ -21,6 +16,7 @@ app = FastAPI(title="Question Answering",
               version="0.1.0",
               )
 nlp = NLP()
+# model = get_model()
 
 @app.get("/")
 def read_root():
