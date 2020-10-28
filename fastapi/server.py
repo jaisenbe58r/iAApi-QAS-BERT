@@ -31,9 +31,6 @@ async def get_qas(context: str = Query(..., min_length=3), question: str = Query
     if context and question:
         result = get_result(model, context, question)
         logging.debug("modelo ejecutado...")
-        print("**********************")
-        print(result)
-        print("**********************")
         # return Response(result)
         return result
     return {"items": "Null"}
