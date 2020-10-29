@@ -262,10 +262,10 @@ Verá los contenedores en ejecución en ejecución sobre un mismo servicio. Ahor
 ***
 Ahora ya puede visitar la aplicación en http://your-domain:8501 desde un navegador externo al servidor para ver la aplicación en ejecución:
 
-![ui](img/ui.png)
+![ui](img/ui.PNG)
 
 ***
 También puede acceder a la documentación de FastAPI desde la url http://your-domain:8008/docs
 
-![doc](img/docs.png)
+![doc](img/docs.PNG)
 
