@@ -4,11 +4,11 @@ from transformers import pipeline
 
 def get_model():
 
-    # qa = pipeline('question-answering', 
-    #           model="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es", 
-    #           tokenizer="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es")
-    def qa(context: str, question: str):
-        return {"answer": "Esto es una prueba"}
+    qa = pipeline('question-answering', 
+              model="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es", 
+              tokenizer="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es")
+    # def qa(context: str, question: str):
+    #     return {"answer": "Esto es una prueba"}
     return qa
 
 def get_result(qa, context, question, max_size=512):
