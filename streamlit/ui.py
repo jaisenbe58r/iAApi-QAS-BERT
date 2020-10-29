@@ -1,14 +1,11 @@
 import streamlit as st
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 import requests
-from PIL import Image
-import io
 import logging
 
 
 # interact with FastAPI endpoint
 backend = 'http://fastapi:8008/qas/'
-# backend = 'http://localhost:8000/qas/'
 
 
 def process(context: str, question: str, server_url: str):
@@ -23,7 +20,6 @@ def process(context: str, question: str, server_url: str):
                       timeout=8000)
     return r
 
-
 # construct UI layout
 st.title('Question Answering')
 
@@ -37,9 +33,6 @@ if st.button('Get Answering'):
 
     if user_input_context and user_input_question:
         result = process(user_input_context, user_input_question, backend)
-        # result_json = json.loads(result.text)
-        # st.write(f'Respuesta:    {result_json["answer"]}')
-        # st.write(f'Score:        {result_json["score"]}')
         st.write(f'Respuesta:    {result.content}')
 
     elif user_input_context:

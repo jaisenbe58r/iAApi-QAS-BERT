@@ -14,7 +14,6 @@ app = FastAPI(title="Question Answering",
               planteada.''',
               version="0.1.0",
               )
-
 model = get_model()
 
 @app.get("/")
@@ -30,6 +29,5 @@ async def get_qas(context: str = Query(..., min_length=3), question: str = Query
     if context and question:
         result = get_result(model, context, question)
         logging.debug("modelo ejecutado...")
-        # return Response(result)
         return result["answer"]
     return {"items": "Null"}
