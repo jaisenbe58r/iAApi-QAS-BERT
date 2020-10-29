@@ -21,8 +21,6 @@ def process(context: str, question: str, server_url: str):
                       params=m.fields,
                       headers={'Content-Type': m.content_type},
                       timeout=8000)
-    print(r.url)
-
     return r
 
 
