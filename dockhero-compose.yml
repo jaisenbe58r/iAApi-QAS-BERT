@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  fastapi:
+    build: 
+      context: fastapi
+      dockerfile: Dockerfile
+    # restart: unless-stopped
+    ports: 
+      - 8008:8008
+    environment:
+      APP_ENV: "prod"
+      APP_DEBUG: "False"
+      # APP_PORT: 8008
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4096M
+        reservations:
+          cpus: '1.0'
+          memory: 2048M
+    networks:
+      - proyect
+    container_name: fastapi-docker
+    # volumes:
+    #   - "./fastapi:/app/"
+
+  streamlit:
+    build: streamlit/
+    depends_on:
+      - fastapi
+    ports: 
+        - 8501:8501
+    networks:
+      - proyect
+    container_name: streamlit-docker
+    # volumes:
+    #   - "./streamlit:/app"
+
+networks:
+  proyect:
+    driver: bridge

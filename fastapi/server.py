@@ -3,10 +3,8 @@ from fastapi import FastAPI, File, Query
 from starlette.responses import Response
 import io
 from model import get_model, get_result
-# from fastapi.encoders import jsonable_encode
 import logging
-# from nlp import NLP
-# import uvicorn
+
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -16,7 +14,7 @@ app = FastAPI(title="Question Answering",
               planteada.''',
               version="0.1.0",
               )
-# nlp = NLP()
+
 model = get_model()
 
 @app.get("/")
@@ -35,7 +33,3 @@ async def get_qas(context: str = Query(..., min_length=3), question: str = Query
         # return Response(result)
         return result["answer"]
     return {"items": "Null"}
-
-
-# if __name__ == "__main__":
-#     uvicorn.run("server:app", host="0.0.0.0", port=8008)
