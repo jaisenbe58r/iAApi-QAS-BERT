@@ -3,7 +3,7 @@ from fastapi import FastAPI, File, Query
 from starlette.responses import Response
 import io
 from model import get_model, get_result
-from fastapi.encoders import jsonable_encode
+# from fastapi.encoders import jsonable_encode
 import logging
 # from nlp import NLP
 # import uvicorn
@@ -33,7 +33,7 @@ async def get_qas(context: str = Query(..., min_length=3), question: str = Query
         result = get_result(model, context, question)
         logging.debug("modelo ejecutado...")
         # return Response(result)
-        return jsonable_encode(result["answer"])
+        return result["answer"]
     return {"items": "Null"}
 
 
