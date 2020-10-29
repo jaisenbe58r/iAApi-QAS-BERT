@@ -1,5 +1,7 @@
 # Machine Learning model serving con FastAPI and streamlit
 
+![PORTADA](img/pORTADA.png)
+
 El objetivo de este _Post_ es dar a conocer la forma de "prototipar" un servicio de machine learning o deep learning desplegado en un servidor de desarrollo, accesible a los desarrolladores para testear los modelos implementados.
 
 El prototipo consta de:
@@ -257,7 +259,13 @@ sudo docker ps
 ```
 Verá los contenedores en ejecución en ejecución sobre un mismo servicio. Ahora que se está ejecutando, visite la dirección IP pública de su servidor en el puerto especificado de su navegador http://IP:8501. o accediendo desde su dominio personal http://your-domain:8501.
 
-Ahora ya puede visitar su aplicación en http://your-domain:8003 desde un navegador externo al servidor para ver la aplicación en ejecución.
+***
+Ahora ya puede visitar la aplicación en http://your-domain:8501 desde un navegador externo al servidor para ver la aplicación en ejecución:
 
+![ui](img/ui.png)
 
+***
+También puede acceder a la documentación de FastAPI desde la url http://your-domain:8008/docs
+
+![doc](img/docs.png)
 
