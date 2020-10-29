@@ -12,7 +12,6 @@ def get_model():
         return "Esto es una prueba"
     return qa
 
-
 def get_result(qa, context, question, max_size=512):
 
     r = qa(context=context, question=question)
