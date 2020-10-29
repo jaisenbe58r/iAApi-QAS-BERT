@@ -1,7 +1,7 @@
 from PIL import Image
 import io
 from transformers import pipeline
-
+from flask import jsonify
 
 def get_model():
 
@@ -9,7 +9,7 @@ def get_model():
     #           model="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es", 
     #           tokenizer="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es")
     def qa(context: str, question: str):
-        return "Esto es una prueba"
+        return jsonify("Esto es una prueba")
     return qa
 
 def get_result(qa, context, question, max_size=512):

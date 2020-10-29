@@ -3,6 +3,7 @@ from requests_toolbelt.multipart.encoder import MultipartEncoder
 import requests
 from PIL import Image
 import io
+from flask import jsonify
 import logging
 
 
