@@ -1,4 +1,4 @@
-# Machine Learning model serving con FastAPI and streamlit
+# Machine Learning Model Serving con FastAPI y Streamlit
 
 ![PORTADA](img/pORTADA.png)
 
