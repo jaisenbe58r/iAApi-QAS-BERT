@@ -33,7 +33,7 @@ if st.button('Get Answering'):
 
     if user_input_context and user_input_question:
         result = process(user_input_context, user_input_question, backend)
-        st.write(f'Respuesta:    {result.content}')
+        st.write(f'Respuesta:    {result.content.decode('ascii')}')
 
     elif user_input_context:
         # handle case with no image
