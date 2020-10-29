@@ -8,6 +8,11 @@ El prototipo consta de:
 - Una interfaz de usuario (UI) para que dichos usuarios puedan interactuar con el servicio.
 - El servicio backend con documentación API, de modo que pueda procesar múltiples solicitudes y pasarse a producción e integrarse con otras aplicaciones de manera robusta y escalable.
 
+Se ha preparado un despliegue en DigitalOcean de todos los servicios sin inferencia del modelo:
+[Frontend | Streamlit](http://104.248.132.63:8501/)
+
+Con acceso a la documentación de FastAPI:
+[Backend | FastAPI - Question Answering - Swagger UI](http://104.248.132.63:8008/docs)
 
 
 ## FastAPI como Backend
