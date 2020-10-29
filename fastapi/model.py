@@ -1,7 +1,7 @@
 from PIL import Image
 import io
 from transformers import pipeline
-from flask import jsonify
+from fastapi.encoders import jsonable_encode
 
 def get_model():
 
@@ -9,7 +9,7 @@ def get_model():
     #           model="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es", 
     #           tokenizer="mrm8488/bert-base-spanish-wwm-cased-finetuned-spa-squad2-es")
     def qa(context: str, question: str):
-        return jsonify("Esto es una prueba")
+        return jsonable_encode("Esto es una prueba")
     return qa
 
 def get_result(qa, context, question, max_size=512):
