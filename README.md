@@ -6,7 +6,7 @@ El objetivo de este _Post_ es dar a conocer la forma de "prototipar" un servicio
 
 El prototipo consta de:
 - Una interfaz de usuario (UI) para que dichos usuarios puedan interactuar con el servicio.
-- El servio backend con documentación API, de modo que pueda procesar multiples solicitudes y pasarse a producción e integrarse con otras aplicaciones de manera robusta y escalable.
+- El servicio backend con documentación API, de modo que pueda procesar múltiples solicitudes y pasarse a producción e integrarse con otras aplicaciones de manera robusta y escalable.
 
 
 
@@ -28,15 +28,13 @@ Sus características principales son:
 - **Basado en estándares:** Basado y totalmente compatible con los estándares abiertos para APIs: OpenAPI (conocido previamente como Swagger) y JSON Schema.
 
 
-[FastAPI](https://fastapi.tiangolo.com/) está [ganando popularidad]((https://twitter.com/honnibal/status/1272513991101775872)) entre los Frameworks de Python. Está completamente documentado, permite codificar API siguiendo las estándares de [OpenAPI](https://en.wikipedia.org/wiki/OpenAPI_Specification) y se puede usar `uvicorn`, lo que permite que sea apto para algunos usos de producción. Su sintaxis también es similar a la de Flask, por lo que es fácil cambiar a ella si ha usado Flask antes.
+[FastAPI](https://fastapi.tiangolo.com/) está [ganando popularidad](https://twitter.com/honnibal/status/1272513991101775872) entre los Frameworks de Python. Está completamente documentado, permite codificar API siguiendo las estándares de [OpenAPI](https://en.wikipedia.org/wiki/OpenAPI_Specification) y se puede usar `uvicorn`, lo que permite que sea apto para algunos usos de producción. Su sintaxis también es similar a la de Flask, por lo que es fácil cambiar a ella si ha usado Flask antes.
 
 
 ## Streamlit como Frontend
 
 
 [Streamlit](https://www.streamlit.io/) es una biblioteca de Python de código abierto que facilita la creación y el intercambio de [aplicaciones web personalizadas](https://www.streamlit.io/gallery) para el aprendizaje automático y la ciencia de datos. A día de hoy Streamlit está [ganando terreno](https://twitter.com/streamlit/status/1272892481470857232?s=20), ya que en solo unos minutos puede crear e implementar potentes aplicaciones de datos, pero a día de hoy aún [no puede crear REST endpoints en python.](https://github.com/streamlit/streamlit/issues/439).
-
-[streamlit](https://www.streamlit.io/) is [getting traction](https://twitter.com/streamlit/status/1272892481470857232?s=20) as well. It allows to create pretty complex UIs in pure Python. It can be used to serve ML models without further ado, but (as of today) [you can't build REST endpoints with it](https://github.com/streamlit/streamlit/issues/439).
 
 
 ## Aplicación Fullstack: BERT - Preguntas y Respuestas
